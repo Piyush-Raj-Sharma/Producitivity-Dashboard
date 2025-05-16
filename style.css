@@ -6,7 +6,7 @@
     --tri1: #E5B299;
     --tri2: #B4846C;
     --txt1: #fff;
-    --txt2: #000;
+    --txt2: #191818;
 }
 
 /* Setting up fonts  */
@@ -59,6 +59,7 @@ section.allElems{
     flex-wrap: wrap;
     align-items: start;
     gap: 20px;
+    position: absolute;
 }
 
 .elem{
@@ -72,6 +73,7 @@ section.allElems{
     position: relative;
     cursor: pointer;
     transition: all ease 0.3s;  
+    /* box-shadow: 0 5px 20px var(--txt2); */
 }
 
 .elem img{
@@ -80,9 +82,9 @@ section.allElems{
     object-fit: cover;
     transition: all ease 0.3s; 
 }
-.elem img:hover{
+/* .elem img:hover{
     scale: 1.1;
-}
+} */
 
 .elem h2{
     position: absolute;
@@ -102,4 +104,21 @@ section.allElems{
     padding: 40px;
     font-size: 60px;
     display: none;
+    position: absolute;
+}
+
+.back{
+    position: absolute;
+    right: 5%;
+    border-radius: 50%;
+    background-color: rgb(38, 2, 2);
+    padding: 10px 11px;
+    font-size: 30px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+.back:active{
+    scale: 0.95;
 }
