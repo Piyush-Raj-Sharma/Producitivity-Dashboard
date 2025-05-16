@@ -78,6 +78,10 @@ section.allElems{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all ease 0.3s; 
+}
+.elem img:hover{
+    scale: 1.1;
 }
 
 .elem h2{
@@ -89,4 +93,13 @@ section.allElems{
 
 .elem:active{
     scale: 0.97;
+}
+
+.fullElem{
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+    padding: 40px;
+    font-size: 60px;
+    display: none;
 }
