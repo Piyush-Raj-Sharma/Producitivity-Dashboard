@@ -28,7 +28,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: normal;
+    font-family: light;
     color: var(--pri);
 }
 
@@ -121,7 +121,7 @@ section.allElems{
 .back:active{
     scale: 0.95;
 }
-
+/* comment this out */
 .todo-list-fullpage{
     display: block;
 }
@@ -147,14 +147,6 @@ section.allElems{
     border-radius: 20px;   
 }
 
-.todo-list-fullpage .todo-Container .allTask{
-    width: 65%;
-    height: 100%;
-    background-color: var(--tri2);
-    border-radius: 20px;
-}
-
-
 .todo-list-fullpage .todo-Container .addTask form{
     display: flex;
     flex-direction: column;
@@ -176,7 +168,7 @@ section.allElems{
 .todo-Container .addTask form textarea{
     padding: 10px 20px;
     width: 100%;
-    min-height: 300px;
+    min-height: 40vh;
     font-size: 25px;
     background-color: var(--sec);
     border-radius: 5px;
@@ -201,3 +193,49 @@ section.allElems{
 .todo-Container .addTask form button:active{
     scale: 0.96;
 }
+
+.todo-list-fullpage .todo-Container .allTask{
+    width: 65%;
+    height: 100%;
+    background-color: var(--tri2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    overflow: auto;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--txt1);
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.task h5{
+    font-size: 25px;
+    color: var(--txt2);
+}
+
+.task button{
+    color: var(--txt1);
+    padding: 10px 20px;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 17px;
+    border: none;
+    font-family: bold;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+
+.task button:active{
+    scale: 0.96;
+    opacity: 0.9;
+}
+
