@@ -90,3 +90,50 @@ form.addEventListener("submit", function (e) {
   taskDetailsInput.value = "";
   taskCheckbox.checked = false;
 });
+
+
+
+
+// Daily planner
+
+function DailyPlanner(){
+  let dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {};
+let DayPlanner = $('.day-planner');
+
+let hours = Array.from({ length: 18 }, (_, idx) => {
+  let start = (6 + idx) % 12 || 12;
+  let end = (7 + idx) % 12 || 12;
+  let suffixStart = 6 + idx < 12 ? "AM" : "PM";
+  let suffixEnd = 7 + idx < 12 ? "AM" : "PM";
+  return `${start}:00 ${suffixStart} - ${end}:00 ${suffixEnd}`;
+});
+
+let wholeDaySum = '';
+hours.forEach(function (elem, idx) {
+  let savedValue = dayPlanData[idx] || '';
+  wholeDaySum += `
+    <div class="day-planner-time">
+      <p>${elem}</p>
+      <input id="${idx}" type="text" placeholder="..." value="${savedValue}">
+    </div>`;
+});
+
+DayPlanner.innerHTML = wholeDaySum;
+
+let dayPlannerInput = $$('.day-planner input');
+dayPlannerInput.forEach(function (elem) {
+  elem.addEventListener('input', function () {
+    dayPlanData[elem.id] = elem.value;
+    localStorage.setItem('dayPlanData', JSON.stringify(dayPlanData));
+  });
+});
+
+$("#clearDayPlanner").addEventListener("click", function () {
+  localStorage.removeItem("dayPlanData");
+  DailyPlanner(); // re-render with empty inputs
+});
+
+
+}
+
+DailyPlanner();

@@ -24,6 +24,29 @@
     src: url(./Fonts/AeonikTRIAL-Regular.otf);
 }
 
+
+/* width of scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* track (background) */
+::-webkit-scrollbar-track {
+  background: #3c241d; /* dark background */
+}
+
+/* handle */
+::-webkit-scrollbar-thumb {
+  background: #fcfcfc;  /* light brown */
+  border-radius: 10px;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9933;
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -277,3 +300,85 @@ section.allElems{
      transform: scale(1.5);
 }
 
+
+
+/* ----------------------Daily Planner-------------------  */
+
+/* Comment this out */
+/* .daily-planner-fullpage{
+    display: block;
+} */
+
+.daily-planner-fullpage .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10% 0 0; 
+}
+
+.daily-planner-fullpage .header button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-family: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.daily-planner-fullpage .header button:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+.daily-planner-fullpage .header button:active {
+  transform: scale(0.95);
+}
+
+.daily-planner-fullpage .header h2{
+    font-size: 50px;
+    font-family: bold;
+}
+
+.daily-planner-fullpage .day-planner{
+    background-color: var(--tri2);
+    height: 85%;
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    overflow: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.day-planner .day-planner-time p{
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    font-size: 15px;
+}
+
+.day-planner .day-planner-time input{
+    padding: 20px 35px;
+    width: 100%;
+    background-color: var(--sec);
+    color: var(--txt1);
+    border-radius: 5px;
+    border: none;
+    font-size: 28px;
+    padding-top: 35px;
+    outline: none;
+}
