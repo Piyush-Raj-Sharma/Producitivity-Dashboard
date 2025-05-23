@@ -480,3 +480,48 @@ section.allElems{
     top: 5%;
     opacity: 0.4;
 }
+
+
+/* POMODORO TIMER */
+
+.pomodoro-fullpage{
+    display: block;
+    position: relative;
+}
+
+.pomodoro-fullpage h2{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: bold;
+}
+
+.pomodoro-fullpage .pomo-timer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pomo-timer h1{
+    font-size: 150px;
+    font-family: normal;
+}
+
+.pomo-timer button{
+    background-color: var(--tri2);
+    padding: 15px 25px;
+    font-size: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer; 
+    transition: all ease 0.2s;
+    box-shadow: 3px 3px  0px black;
+    font-family: bold;
+}
+
+.pomo-timer button:active{
+    scale: 0.92;
+    box-shadow: 0px 0px  0px black;
+}

@@ -160,8 +160,16 @@ function motivationalQuote(){
       console.error('Error fetching quote:', error);
     }
   }
-
   fetchQuote();
-
 }
 motivationalQuote()
+
+
+// Pomodoro Timer
+
+let totalSeconds = 25*60;
+let timer = $('.pomo-timer');
+function updateTime(){
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = Math.floor(totalSeconds % 60);
+}
