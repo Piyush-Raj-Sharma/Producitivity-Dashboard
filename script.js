@@ -137,3 +137,31 @@ $("#clearDayPlanner").addEventListener("click", function () {
 }
 
 DailyPlanner();
+
+// Motivation Quote
+
+function motivationalQuote(){
+  let motivationQuoteContent = $('.motivation-2 h1');
+  let motivationAuthor = $('.motivation-3 h2');
+
+  async function fetchQuote() {
+    const apiUrl = 'https://zenquotes.io/api/random';
+    const fullUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}&timestamp=${Date.now()}`; // cache buster
+
+    try {
+      const response = await fetch(fullUrl);
+      const data = await response.json();
+      const parsedContent = JSON.parse(data.contents);
+
+      motivationQuoteContent.innerHTML = parsedContent[0].q;
+      motivationAuthor.innerHTML = '- ' + parsedContent[0].a;
+
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    }
+  }
+
+  fetchQuote();
+
+}
+motivationalQuote()
