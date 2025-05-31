@@ -2,6 +2,7 @@
 
 A visually engaging and feature-rich **Productivity Dashboard** designed to streamline your daily planning, task management, motivation, and time tracking — all in one place.
 
+![Screenshot](./assets/preview.png)
 ---
 
 ## 🚀 Features
