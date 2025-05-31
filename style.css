@@ -1,527 +1,1252 @@
-
-/* Setting up root variables for some default colors */
-:root{
-    --pri: #FCDEC0;
-    --sec: #3c241d;
-    --tri1: #E5B299;
-    --tri2: #5b4236;
-    --txt1: #fff;
-    --txt2: #191818;
+:root {
+  --primary-color: #181c14;
+  --secondary-color: #3c3d37;
+  --tri1: #697565;
+  --tri2: #ecdfcc;
+  --tri3: #d6bd98;
 }
-
-/* Setting up fonts  */
 
 @font-face {
-    font-family: light;
-    src: url(./Fonts/AeonikTRIAL-Light.otf);
+  font-family: aeonik;
+  font-weight: 200;
+  src: url(./assets/AeonikTRIAL-Light.otf);
 }
+
 @font-face {
-    font-family: bold;
-    src: url(./Fonts/AeonikTRIAL-Bold.otf);
+  font-family: aeonik;
+  src: url(./assets/AeonikTRIAL-Bold.otf);
+  font-weight: 600;
 }
+
 @font-face {
-    font-family: normal;
-    src: url(./Fonts/AeonikTRIAL-Regular.otf);
+  font-family: aeonik;
+  src: url(./assets//AeonikTRIAL-Regular.otf);
+  font-weight: 500;
 }
 
-
-/* width of scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: aeonik;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-/* track (background) */
-::-webkit-scrollbar-track {
-  background: #3c241d; /* dark background */
-}
-
-/* handle */
-::-webkit-scrollbar-thumb {
-  background: #fcfcfc;  /* light brown */
-  border-radius: 10px;
-}
-
-/* handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #ff9933;
-}
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: light;
-    color: var(--pri);
-}
-
-html, body{
-    height: 100%;
-    width: 100%;
-}
-
-#main{
-    height: 100%;
-    width: 100%;
-    background-color: var(--sec);
-}
-
-nav{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background-color: var(--tri1);
-}
-
-section.allElems{
-    height: 100%;
-    width: 100%;
-    padding: 40px;
-    padding-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    gap: 20px;
-    position: absolute;
-}
-
-.elem{
-    background-color: #FEBA17;
-    border-radius: 20px;
-    font-size: 25px;
-    height: 400px;
-    width: 330px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: all ease 0.3s;  
-    /* box-shadow: 0 5px 20px var(--txt2); */
-}
-
-.elem img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all ease 0.3s; 
-}
-.elem img:hover{
-    scale: 1.1;
-}
-
-.elem h2{
-    position: absolute;
-    bottom: 4%;
-    right: 5%;
-    font-weight: 500;
-}
-
-.elem:active{
-    scale: 0.97;
-}
-
-.fullElem{
-    height: 100%;
-    width: 100%;
-    background-color: var(--sec);
-    padding: 40px;
-    display: none;
-    position: absolute;
-}
-
-.back{
-    position: absolute;
-    right: 5%;
-    border-radius: 50%;
-    background-color: rgb(38, 2, 2);
-    padding: 10px 11px;
-    font-size: 30px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-}
-
-.back:active{
-    scale: 0.95;
-}
-
-/* comment this out */
-
-/* .todo-list-fullpage{
-    display: block;
-} */
-
-.todo-list-fullpage{
-    font-size: 50px
-}
-
-
-.todo-list-fullpage .todo-Container{
-    height: 80%;
-    width: 100%;
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.todo-list-fullpage .todo-Container .addTask{
-    width: 33%;
-    height: 100%;
-    background-color: var(--tri2);
-    border-radius: 20px;   
-}
-
-.todo-list-fullpage .todo-Container .addTask form{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
-}
-
-.todo-Container .addTask form input#task-input{
-    padding: 10px 20px;
-    width: 100%;
-    font-size: 25px;
-    background-color: var(--txt1);
-    color: var(--txt2);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-bottom: 20px;
-}
-
-.todo-Container .addTask form textarea{
-    padding: 10px 20px;
-    width: 100%;
-    min-height: 40vh;
-    font-size: 25px;
-    background-color: var(--txt1);
-    color: var(--txt2);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-bottom: 20px;
-}
-
-.todo-Container .addTask form button{
-    padding: 10px 20px;
-    width: 100%;
-    font-size: 25px;
-    background-color: var(--pri);
-    color: var(--sec);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-bottom: 20px;
-    cursor: pointer;
-    font-family: bold;
-    transition: all ease 0.2s;
-}
-.todo-Container .addTask form button:active{
-    scale: 0.96;
-}
-
-.todo-list-fullpage .todo-Container .allTask{
-    width: 65%;
-    height: 100%;
-    background-color: var(--tri2);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
-    overflow: auto;
-}
-
-.task{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: var(--txt1);
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.task h5{
-    font-size: 22px;
-    color: var(--txt2);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.task h5 span{
-    font-size: 12px;
-    background-color: red;
-    color: var(--txt1);
-    padding: 3px 7px;
-    border-radius: 40px;
-}
-.task h5 span.true{
-    opacity: 1;
-}
-.task h5 span.false{
-    opacity: 0;
-}
-
-.task button{
-    color: var(--txt1);
-    padding: 10px 20px;
-    background-color: green;
-    border-radius: 5px;
-    font-size: 17px;
-    border: none;
-    font-family: bold;
-    cursor: pointer;
-    transition: all ease 0.2s;
-}
-
-.task button:active{
-    scale: 0.96;
-    opacity: 0.9;
-}
-
-
-.mark-imp{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 18px;
-    width: 100%;
-    padding: 0 10px;
-    margin-bottom: 20px; 
-    gap: 1em;
-}
-
-.mark-imp input{
-     transform: scale(1.5);
-}
-
-
-
-/* ----------------------Daily Planner-------------------  */
-
-/* Comment this out */
-/* .daily-planner-fullpage{
-    display: block;
-} */
-
-.daily-planner-fullpage .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10% 0 0; 
-}
-
-.daily-planner-fullpage .header button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-family: bold;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.daily-planner-fullpage .header button:hover {
-  background-color: #e60000;
-  transform: scale(1.05);
-}
-
-.daily-planner-fullpage .header button:active {
-  transform: scale(0.95);
-}
-
-.daily-planner-fullpage .header h2{
-    font-size: 50px;
-    font-family: bold;
-}
-
-.daily-planner-fullpage .day-planner{
-    background-color: var(--tri2);
-    height: 85%;
-    margin-top: 40px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 30px;
-    overflow: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.daily-planner-fullpage .day-planner .day-planner-time{
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 49%;
-    margin-bottom: 15px;
-}
-
-.day-planner .day-planner-time p{
-    position: absolute;
-    top: 12%;
-    left: 2%;
-    font-size: 15px;
-    font-family: normal;
-    color: var(--tri2);
-}
-
-.day-planner .day-planner-time input{
-    padding: 20px 35px;
-    width: 100%;
-    background-color: var(--tri1);
-    color: var(--sec);
-    border-radius: 5px;
-    border: none;
-    font-size: 28px;
-    padding-top: 35px;
-    outline: none;
-}
-
-
-/* ---------------MOTIVATION QUOTES--------------------- */
-
-.motivational-fullpage {
-  position: relative;
+html,
+body {
   width: 100%;
   height: 100%;
 }
+body {
+  background-color: var(--primary-color);
+  color: var(--tri3);
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--primary-color);
+  padding: 3rem 6rem;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  justify-content: space-between;
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+nav h2 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+nav p {
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  color: var(--tri2);
+  letter-spacing: 0.5px;
+}
+nav button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--tri3);
+  transition: all ease 0.2s;
+}
+
+nav button:active {
+  scale: 0.95;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.location input {
+  padding: 0.5rem;
+  width: 9rem;
+  border: 1px solid var(--tri2);
+  outline: none;
+  border-radius: 5px;
+  background-color: inherit;
+  font-size: 1rem;
+  color: var(--tri2);
+  text-transform: capitalize;
+}
+
+.weather-section {
+  margin-top: 4rem;
+  width: 100%;
+  height: 27rem;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all ease 0.3s;
+}
+
+.weather-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border-radius: 10px;
+  z-index: 1;
+}
+.weather-section .black {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #111;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.weather-section .weather-container {
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  color: var(--tri2);
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-container .weather-right h1 {
+  font-size: 4rem;
+}
+
+.weather-container .weather-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.weather-container .weather-right h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.weather-container .weather-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.weather-container .weather-left .temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather-left .temperature h1 {
+  font-size: 4rem;
+}
+.weather-left .temperature h5 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.weather-left .weather-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.weather-left .weather-description p {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cards-section {
+  margin-top: 4rem;
+}
+.cards-section h1 {
+  font-size: 4rem;
+}
+
+.card-container {
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.card-container .card {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.card-container .card:active {
+  scale: 0.95;
+}
+
+.card-container .card video {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card .black {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+
+.card-lower {
+  position: absolute;
+  z-index: 20;
+  bottom: 5%;
+  right: 5%;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-lower h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.card-lower i {
+  font-size: 2rem;
+}
+
+.all-sections section {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--primary-color);
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+  padding: 3rem 6rem;
+}
+section .section-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-upper button {
+  padding: 0.8rem 3rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: var(--tri1);
+  border: none;
+  outline: none;
+  color: var(--tri2);
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+.section-upper button:active {
+  scale: 0.95;
+}
+.section-upper h1 {
+  font-size: 3rem;
+}
+
+.todo-list {
+  display: block;
+}
+
+.todo-container {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+textarea {
+  resize: none;
+}
+
+.todo-left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  gap: 0.9rem;
+  border-radius: 10px;
+}
+.todo-left h1 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.todo-left input {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+.todo-left textarea {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.check {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.check #checkbox {
+  scale: 1.5;
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+
+.todo-left button {
+  border: none;
+  outline: none;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--tri3);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all ease 0.3s;
+}
+
+.todo-left button:active {
+  scale: 0.95;
+}
+
+.todo-container .todo-right {
+  width: 70%;
+  max-height: 60vh;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.todo-container .todo-right .list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  position: relative;
+}
+
+.list .imp {
+  position: absolute;
+  top: -5%;
+  left: -1%;
+  padding: 0.3rem;
+  border-radius: 10px;
+  background-color: rgb(179, 26, 26);
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: none;
+}
+
+.list .imp.true {
+  display: block;
+}
+
+.list h4 {
+  text-transform: capitalize;
+}
+
+.todo-right .list .list-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-lower {
+  height: 0px;
+  border-radius: 5px;
+  transition: all ease 0.2s;
+  font-size: 0.9rem;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.list-lower-open {
+  height: 5rem;
+  padding: 0.3rem;
+  border: 0.5px solid white;
+  margin-top: 0.5rem;
+}
+
+.list-lower p {
+  color: var(--tri2);
+  text-transform: capitalize;
+}
+
+.todo-right .list h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.todo-right .list .list-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.todo-right .list .list-right i {
+  scale: 1.3;
+  cursor: pointer;
+}
+.todo-right .list .list-right i:nth-child(2) {
+  color: rgb(172, 11, 11);
+}
+
+.todo-error , .sticky-error , .timer-err{
+  font-size: 0.7rem;
+}
+
+.todo-container .todo-right::-webkit-scrollbar {
+  width: 10px;
+}
+
+.todo-container .todo-right::-webkit-scrollbar-track {
+  background: var(--tri1); /* Track color */
+  border-radius: 10px;
+}
+
+.todo-container .todo-right::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color); /* Scroll thumb color */
+  border-radius: 10px;
+  border: 2px solid #f0f0f0; /* Padding around thumb */
+}
+
+.todo-container .todo-right::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* On hover */
+}
+
+.todo-edit-popup {
+  width: 50%;
+  background-color: var(--tri1);
+  position: absolute;
+  z-index: 10;
+  top: -500%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px #111;
+  padding: 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translate(-50%, -50%);
+  transition: all ease 0.4s;
+}
+.todo-edit-popup .cut-round {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.todo-edit-popup input {
+  border: none;
+  outline: none;
+  padding: 0.7rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.todo-edit-popup textarea {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.todo-edit-popup button {
+  padding: 0.7rem;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: var(--tri3);
+  cursor: pointer;
+  font-size: 1rem;
+}
 
 .motivation-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--tri2);
-  padding: 30px;
-  width: 70%;
-  border-radius: 40px;
-  box-sizing: border-box;
-  z-index: 2;
+  width: 50%;
+  background-color: var(--secondary-color);
+  margin: auto;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 20px;
 }
 
-.motivation-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--pri);
-  border-radius: 40px;
-  filter: blur(150px);
-  transform: scale(1.15);
-  z-index: -1;
-}
-
-.motivation-warapper {
-  position: relative;
-  background-color: var(--tri1);
-  border-radius: 30px;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 10;
-}
-
-.motivation-1 {
+.motivation-content {
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.motivation-1 h2 {
-  background-color: var(--tri2);
-  padding: 15px 20px ; 
-  border-radius: 10px;
-  width: fit-content;
-  font-size: 30px;
-  font-family: bold;;
+.motivation h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--tri2);
+  margin-bottom: 0.5rem;
 }
-
-.motivation-2 {
-  padding: 0 10px 0;
-  margin-top: 20px;
+.motivation h5 {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-
-.motivation-2 h1 {
-  font-size: 50px;
-  font-family: light;
-  color: var(--sec);
-  margin: 0;
-  line-height: 1.2;
-  word-wrap: break-word;
-}
-
-.motivation-3 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.motivation-3 h2 {
-  background-color: var(--tri2);
-  padding: 12px 18px;
-  border-radius: 15px;
-  width: fit-content;
-  font-size: 30px;
-  font-family: light;
+.motivation p {
+  font-size: 1.1rem;
+  margin-top: 1rem;
   text-align: right;
 }
 
-.motivational-fullpage .motivation-container .motivation-warapper img{
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    opacity: 0.4;
+.timer-container {
+  width: 50%;
+  background-color: var(--secondary-color);
+  margin: auto;
+  margin-top: 1rem;
+  padding: 2.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+.timer-input {
+  margin: auto;
+  width: fit-content;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.timer-input input {
+  padding: 0.7rem 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  border-radius: 5px;
 }
 
-
-/* POMODORO TIMER */
-
-.pomodoro-fullpage{
-    display: block;
-    position: relative;
+.timer-input button {
+  padding: 0.7rem 3rem;
+  background-color: var(--secondary-color);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--tri2);
+  transition: all ease 0.3s;
+  width: 100%;
+}
+.timer-input button:active {
+  scale: 0.95;
 }
 
-.pomodoro-fullpage h2{
-    font-size: 50px;
-    text-transform: uppercase;
-    font-family: bold;
+.timer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.pomodoro-fullpage .pomo-timer{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.timer-content .progress-bar {
+  width: 100%;
+  height: 0.8rem;
+  background-color: gray;
+  border-radius: 10px;
+  margin-top: 1rem;
+  position: relative;
+}
+.progress-bar .bar {
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(8, 97, 8);
+  border-radius: 10px;
+  transition: width linear 0.1s;
+}
+
+.timer-content h2 {
+  font-size: 3rem;
+  letter-spacing: 0.8px;
+}
+
+.timer-content h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.timer-content h1 {
+  font-size: 4rem;
+  transition: all ease 0.2s;
+}
+.timer-content .timer-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.timer-content .timer-buttons button {
+  padding: 0.7rem 3rem;
+  background-color: var(--primary-color);
+  color: var(--tri3);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: 5px 5px 6px #111;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.timer-content .timer-buttons button:active {
+  box-shadow: none;
+  scale: 0.95;
+}
+
+.daily-planner-container {
+  max-height: 75vh;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.daily-planner-container .daily-list {
+  width: 48%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.daily-planner-container .daily-list input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.daily-planner-container .daily-list h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.daily-planner-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.daily-planner-container::-webkit-scrollbar-track {
+  background: var(--tri1); /* Track color */
+  border-radius: 10px;
+}
+
+.daily-planner-container::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color); /* Scroll thumb color */
+  border-radius: 10px;
+  border: 2px solid #f0f0f0; /* Padding around thumb */
+}
+
+.daily-planner-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* On hover */
+}
+
+.sticky-notes .create-notes {
+  margin-top: 1.2rem;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--tri1);
+  border-radius: 5px;
+  color: var(--tri2);
+  transition: all ease 0.3s;
+}
+.sticky-notes .create-notes:active {
+  scale: 0.95;
+}
+
+.sticky-notes {
+  height: 100%;
+}
+
+.sticky-notes-container {
+  width: 100%;
+  height: 70vh;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  overflow-y: auto;
+  padding-top: 1rem;
+  z-index: 2;
+}
+
+.sticky-notes-container .notes {
+  width: 17rem;
+  height: 17rem;
+  background-color: green;
+  padding: 1.5rem 1.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-notes-container .notes h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+.notes .hanger {
+  position: absolute;
+  top: -6%;
+  left: 4%;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hanger .pin {
+  width: 0.7rem;
+  height: 2rem;
+  background: radial-gradient(circle at 30% 30%, #f5d776, #d4af37 70%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.notes-lower {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.notes-lower .round {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+.notes-lower .round i {
+  font-size: 0.9rem;
+}
+
+.notes-lower p {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+.create-notes-popup {
+  width: 50%;
+  background-color: var(--tri1);
+  position: fixed; /* fixed for centering on screen */
+  z-index: 10;
+  top: -500%; /* hidden by default */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px #111;
+  padding: 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all ease 0.4s;
+}
+.create-notes-popup .cut-round {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.create-notes-popup textarea {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.create-notes-popup button {
+  padding: 0.7rem;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: var(--tri3);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all ease 0.3s;
+}
+
+.create-notes-popup .select-color h3 {
+  color: var(--tri2);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.create-notes-popup .colors {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+.create-notes-popup .colors button {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  transition: border ease 0.3s;
+}
+.colors button:nth-child(1) {
+  background-color: #f1f58f;
+}
+.colors button:nth-child(2) {
+  background-color: #ffa930;
+}
+.colors button:nth-child(3) {
+  background-color: #ff32b2;
+}
+.colors button:nth-child(4) {
+  background-color: #a9edf1;
+}
+
+.colors button:nth-child(5) {
+  background-color: #74ed4b;
+}
+
+.sticky-notes-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sticky-notes-container::-webkit-scrollbar-track {
+  background: var(--tri1); /* Track color */
+  border-radius: 10px;
+}
+
+.sticky-notes-container::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color); /* Scroll thumb color */
+  border-radius: 10px;
+  border: 2px solid #f0f0f0; /* Padding around thumb */
+}
+
+.sticky-notes-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* On hover */
+}
+
+.footer {
+  width: 100%;
+  padding: 1rem;
+  margin: auto;
+  margin-top: 3rem;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.footer span i {
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  font-size: 1.4rem;
+  color: rgb(194, 10, 10);
+  animation: updown 2s infinite linear;
+  transition: all ease 0.5s;
+}
+
+@keyframes updown {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1.2;
+  }
+}
+
+@media (max-width: 924px) {
+  main {
+    padding: 1.2rem 1rem;
+  }
+
+  nav {
+    padding: 1rem 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav h2 {
+    font-size: 1.2rem;
     text-align: center;
-}
+  }
+  nav p {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  nav button {
+    padding: 0.6rem 1rem;
+    font-size: 0.6rem;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .location input {
+    padding: 0.3rem 0.5rem;
+    width: 8rem;
+    font-size: 0.7rem;
+  }
+  .location img {
+    width: 1rem;
+  }
+  .weather-section {
+    margin-top: 2rem;
+  }
+  .weather-section .weather-container {
+    padding: 2.5rem 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .weather-container .weather-right h1 {
+    font-size: 2rem;
+  }
+  .weather-container .weather-right h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .weather-left .temperature h1 {
+    font-size: 3rem;
+  }
+  .weather-left .temperature h5 {
+    font-size: 2rem;
+  }
+  .weather-left .weather-description p {
+    font-size: 1rem;
+  }
+  .cards-section h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  .all-sections section {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--primary-color);
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: none;
+    padding: 1.5rem 1rem;
+  }
 
-.pomo-timer h1{
-    font-size: 150px;
-    font-family: normal;
-}
+  .section-upper button {
+    padding: 0.6rem 1.7rem;
+    font-size: 0.8rem;
+  }
+  .section-upper h1 {
+    font-size: 1.5rem;
+  }
 
-.pomo-timer button{
-    background-color: var(--tri2);
-    padding: 15px 25px;
-    font-size: 30px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer; 
-    transition: all ease 0.2s;
-    box-shadow: 3px 3px  0px black;
-    font-family: bold;
-}
+  .todo-container {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .todo-container .todo-left {
+    width: 100%;
+    padding: 1rem;
+  }
 
-.pomo-timer button:active{
-    scale: 0.92;
-    box-shadow: 0px 0px  0px black;
+  .todo-container .todo-right {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .todo-right .list h4 {
+    font-size: 1rem;
+  }
+  .todo-right .list .list-right {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+  }
+  .todo-right .list .list-right i {
+    scale: 1;
+  }
+
+  .motivation-container {
+    width: 100%;
+    margin-top: 5rem;
+    padding: 1.4rem;
+  }
+
+  .motivation-content {
+    padding: 1.5rem 1.3rem;
+    gap: 1rem;
+  }
+
+  .motivation h2 {
+    font-size: 2.3rem;
+  }
+  .motivation h5 {
+    font-size: 1.2rem;
+  }
+  .motivation p {
+    font-size: 0.9rem;
+  }
+
+  .timer-container {
+    width: 100%;
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+  .timer-input {
+    margin: auto;
+    width: fit-content;
+    flex-direction: column;
+  }
+
+  .timer-input button {
+    width: 100%;
+    padding: 0.6rem 3rem;
+    font-size: 0.9rem;
+  }
+
+  .timer-content {
+    gap: 0.8rem;
+  }
+
+  .timer-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .timer-content h5 {
+    font-size: 0.9rem;
+  }
+
+  .timer-content h1 {
+    font-size: 3rem;
+  }
+  .timer-content .timer-buttons {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .timer-content .timer-buttons button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .daily-planner-container {
+    padding: 1rem;
+  }
+  .daily-planner-container .daily-list {
+    width: 100%;
+    padding: 1rem;
+  }
+  .daily-planner-container .daily-list input {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .daily-planner-container .daily-list h3 {
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .sticky-notes-container {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  .sticky-notes .create-notes {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .sticky-notes-container .notes {
+    width: 17rem;
+    height: 17rem;
+    padding: 1.5rem 1.2rem;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .sticky-notes-container .notes h3 {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .list .imp {
+    font-size: 0.6rem;
+  }
+
+  .todo-edit-popup {
+    width: 90%;
+    padding: 1.5rem 1rem;
+  }
+  .todo-edit-popup .cut-round {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+  }
+  .todo-edit-popup input {
+    font-size: 0.9rem;
+  }
+  .todo-edit-popup textarea {
+    font-size: 0.9rem;
+  }
+
+  .todo-edit-popup button {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  .todo-edit-popup h1 {
+    font-size: 1.2rem;
+  }
+
+  .create-notes-popup {
+    width: 90%;
+    padding: 3rem 1rem;
+  }
+  .create-notes-popup .cut-round {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .create-notes-popup .select-color h3 {
+    font-size: 0.9rem;
+  }
+
+  .create-notes-popup h1 {
+    font-size: 1rem;
+  }
+  .footer {
+    padding: 0.6rem;
+    margin-top: 2rem;
+  }
+  .footer h4 {
+    font-size: 0.7rem;
+  }
+
+  .footer span i {
+    font-size: 0.9rem;
+  }
+  .sticky-notes-container::-webkit-scrollbar {
+  display: none;
+ }
+.daily-planner-container::-webkit-scrollbar {
+  display: none;
+ }
+ .todo-container .todo-right::-webkit-scrollbar {
+  display: none;
+}
 }

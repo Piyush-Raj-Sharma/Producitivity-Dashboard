@@ -1,127 +1,461 @@
-<!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  style="
+    --primary-color: #1a3636;
+    --secondary-color: #40534c;
+    --tri1: #677d6a;
+    --tri2: #d6bd98;
+  "
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Dashboard</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
+      rel="icon"
+      type="image/png"
+      href="./assets/android-chrome-512x512.png"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
   <body>
-    <div id="main">
-      <section class="allElems">
-        <div class="todo elem" id="0">
-          <img
-            src="https://images.unsplash.com/photo-1648457257285-cfbc3781cc54?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <h2>To Do List</h2>
+    <main style="display: block">
+      <nav
+        style="
+          translate: none;
+          rotate: none;
+          scale: none;
+          transform: translate(0px, 0px);
+          opacity: 1;
+        "
+      >
+        <div class="nav-left">
+          <h2>Progress Dashboard</h2>
+          <p>Track your productivity and plan your day</p>
         </div>
-        <div class="daily elem" id="1">
-          <img
-            src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <h2>Daily Planner</h2>
-        </div>
-        <div class="moti elem" id="2">
-          <img
-            src="https://images.unsplash.com/photo-1643780668909-580822430155?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <h2>Motivation</h2>
-        </div>
-        <div class="pomo elem" id="3">
-          <img
-            src="https://images.unsplash.com/photo-1502921935-be74c0dc50fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <h2>Pomodoro Timer</h2>
-        </div>
-        <div class="goals elem" id="4">
-          <img
-            src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <h2>Daily Goals</h2>
-        </div>
-      </section>
-      <section class="fullElem todo-list-fullpage">
-        <button class="back" id="0"><i class="ri-close-fill"></i></button>
-        <h2>Your personalized Task List</h2>
-        <div class="todo-Container">
-          <div class="addTask">
-            <form>
-              <input
-                type="text"
-                name=""
-                id="task-input"
-                placeholder="Enter Task"
-                required
-              />
-              <textarea name="" id="" placeholder="Enter Details"></textarea>
-              <div class="mark-imp">
-                <input type="checkbox" name="checkbox" id="check" />
-                <label for="check">Mark as Important!</label>
-              </div>
-              <button>Add Task</button>
-            </form>
+        <div class="nav-right">
+          <div class="location">
+            <img src="assets/map_pin_2_line.png" alt="" />
+            <input type="text" placeholder="Enter City Name" />
           </div>
-          <div class="allTask">
-            <!-- <div class="task">
-                <h5>Hello World</h5>
-                <button>Mark as Completed</button>
-              </div> -->
+          <button class="theme-btn">Change Theme</button>
+        </div>
+      </nav>
+      <div
+        class="weather-section"
+        style="
+          translate: none;
+          rotate: none;
+          scale: none;
+          transform: translate(0px, 0px);
+          opacity: 1;
+        "
+      >
+        <div class="black"></div>
+        <div class="weather-container">
+          <div class="weather-right">
+            <h1>31 Jun , 2025</h1>
+            <h2>Saturday , 11:56:19 AM</h2>
+            <h2 class="city-name">Bengaluru (Karnataka) , India</h2>
           </div>
-        </div>
-      </section>
-      <section class="fullElem daily-planner-fullpage">
-        <button class="back" id="1"><i class="ri-close-fill"></i></button>
-        <div class="header">
-          <h2>Plan your Day</h2>
-          <button id="clearDayPlanner">Clear All Tasks</button>
-        </div>
-
-        <div class="day-planner">
-          <!-- <div class="day-planner-time">
-            <p>6:00 - 7:00</p>
-            <input type="text" placeholder="...">
-          </div> -->
-        </div>
-      </section>
-      <section class="fullElem motivational-fullpage">
-        <button class="back" id="2"><i class="ri-close-fill"></i></button>
-        <div class="motivation-container">
-          <div class="motivation-warapper">
-            <img width="100" height="100" src="https://img.icons8.com/ios-filled/100/quote-right.png" alt="quote-right"/>
-            <div class="motivation-1">
-              <h2>Quote of The Day</h2>
+          <div class="weather-left">
+            <div class="temperature">
+              <h1>26°C</h1>
+              <h5>Partly cloudy</h5>
             </div>
-            <div class="motivation-2">
-              <h1></h1>
-            </div> 
-            <div class="motivation-3">
-              <h2></h2>
-            </div> 
+            <div class="weather-description">
+              <p class="feels">Feels like :27.8°C</p>
+              <p class="humidity">Humidity : 79%</p>
+              <p class="wind">Wind : 31km/h</p>
+            </div>
+          </div>
+        </div>
+        <video
+          src="./assets/vid2.mp4"
+          autoplay=""
+          loop=""
+          muted=""
+          playsinline=""
+          preload="auto"
+          controlslist="nodownload"
+          oncontextmenu="return false;"
+          class="background-video"
+          style="opacity: 1"
+        ></video>
+      </div>
+      <div class="cards-section">
+        <h1>Make Your Day Productive</h1>
+        <div class="card-container">
+          <div class="card">
+            <div class="black"></div>
+            <div class="card-lower">
+              <i class="fa-solid fa-list-ol"></i>
+              <h2>Todo List</h2>
+            </div>
+            <video
+              src="./assets/todo.mp4"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              preload="auto"
+            ></video>
+          </div>
+          <div class="card">
+            <div class="card-lower">
+              <i class="fa-solid fa-trophy"></i>
+              <h2>Motivation</h2>
+            </div>
+            <div class="black"></div>
+            <video
+              src="./assets/motivation.mp4"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              preload="auto"
+            ></video>
+          </div>
+          <div class="card">
+            <div class="card-lower">
+              <i class="fa-regular fa-clock"></i>
+              <h2>Timer</h2>
+            </div>
+            <div class="black"></div>
+            <video
+              src="./assets/timer.mp4"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              preload="auto"
+            ></video>
+          </div>
+          <div class="card">
+            <div class="card-lower">
+              <i class="fa-solid fa-book"></i>
+              <h2>Daily Planner</h2>
+            </div>
+            <div class="black"></div>
+            <video
+              src="./assets/dailyplanner.mp4"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              preload="auto"
+            ></video>
+          </div>
+          <div class="card">
+            <div class="card-lower">
+              <i class="fa-regular fa-note-sticky"></i>
+              <h2>Sticky Notes</h2>
+            </div>
+            <div class="black"></div>
+            <video
+              src="./assets/sticky.mp4"
+              autoplay=""
+              loop=""
+              muted=""
+              playsinline=""
+              preload="auto"
+            ></video>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <h4>
+          Created With <span><i class="fa-regular fa-heart"></i></span> By
+          Piyush Raj
+        </h4>
+      </div>
+    </main>
+    <div class="all-sections">
+      <section class="todo-list">
+        <div class="section-upper">
+          <h1>Make a Todo List!</h1>
+          <button>Back</button>
+        </div>
+        <div class="todo-container">
+          <div class="todo-edit-popup">
+            <div class="cut-round">
+              <i class="fa-solid fa-xmark cut-icon"></i>
+            </div>
+            <h1>Edit Your Task</h1>
+            <input type="text" />
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button>Update Task</button>
+          </div>
+          <div class="todo-left">
+            <h1>Make Your Task</h1>
+            <p class="todo-error"></p>
+            <input type="text" placeholder="Enter your Task" />
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="7"
+              placeholder="Enter your task description"
+            ></textarea>
+            <div class="check">
+              <input type="checkbox" name="" id="checkbox" />
+              <label for="checkbox">Mark as Important</label>
+            </div>
+            <button>Create Task</button>
+          </div>
+          <div class="todo-right"><p>There is no Task</p></div>
+        </div>
+      </section>
+      <section class="motivation">
+        <div class="section-upper">
+          <h1>Be Motivated!</h1>
+          <button>Back</button>
+        </div>
+        <div class="motivation-container">
+          <div class="motivation-content">
+            <h2>Quotes</h2>
+            <h5>We do what we do because we believe.</h5>
+            <p>-Unknown</p>
           </div>
         </div>
       </section>
-      <section class="fullElem pomodoro-fullpage">
-        <button class="back" id="3"><i class="ri-close-fill"></i></button>
-        <h2>Study with Me</h2>
-        <div class="pomo-timer">
-          <h1>25:00</h1>
-          <button class="start-timer">Start</button>
-          <button class="pause-timer">Pause</button>
-          <button class="reset-timer">Reset</button>
+      <section class="Timer">
+        <div class="section-upper">
+          <h1>Focus Mode: Let’s Get Things Done!</h1>
+          <button>Back</button>
+        </div>
+        <div class="timer-container">
+          <div class="timer-input">
+            <p class="timer-err"></p>
+            <input type="text" placeholder="Enter Time in minutes" />
+            <button>Ok</button>
+          </div>
+          <div class="timer-content">
+            <h2>Timer</h2>
+            <h5>Let's Start</h5>
+            <div class="progress-bar">
+              <div class="bar"></div>
+            </div>
+            <h1>00:00</h1>
+            <div class="timer-buttons">
+              <audio
+                src="./assets/tick-tick.mp3"
+                loop=""
+                class="tick-tick"
+              ></audio>
+              <audio src="./assets/audio sound.mp3" class="timesup"></audio>
+              <audio src=""></audio>
+              <button class="start">Start</button>
+              <button class="pause">Pause</button>
+              <button class="reset">Reset</button>
+            </div>
+          </div>
         </div>
       </section>
-      <section class="fullElem daily-goals-fullpage">
-        <button class="back" id="4"><i class="ri-close-fill"></i></button>
-        <h1>Daily Goals Page</h1>
+      <section class="daily-planner">
+        <div class="section-upper">
+          <h1>Plan Your Day!</h1>
+          <button>Back</button>
+        </div>
+        <div class="daily-planner-container">
+          <div class="daily-list" data-id="0">
+            <h3>6 AM - 7 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="0"
+            />
+          </div>
+
+          <div class="daily-list" data-id="1">
+            <h3>7 AM - 8 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="1"
+            />
+          </div>
+
+          <div class="daily-list" data-id="2">
+            <h3>8 AM - 9 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="2"
+            />
+          </div>
+
+          <div class="daily-list" data-id="3">
+            <h3>9 AM - 10 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="3"
+            />
+          </div>
+
+          <div class="daily-list" data-id="4">
+            <h3>10 AM - 11 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="4"
+            />
+          </div>
+
+          <div class="daily-list" data-id="5">
+            <h3>11 AM - 12 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="5"
+            />
+          </div>
+
+          <div class="daily-list" data-id="6">
+            <h3>12 AM - 13 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="6"
+            />
+          </div>
+
+          <div class="daily-list" data-id="7">
+            <h3>13 PM - 14 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="7"
+            />
+          </div>
+
+          <div class="daily-list" data-id="8">
+            <h3>14 PM - 15 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="8"
+            />
+          </div>
+
+          <div class="daily-list" data-id="9">
+            <h3>15 PM - 16 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="9"
+            />
+          </div>
+
+          <div class="daily-list" data-id="10">
+            <h3>16 PM - 17 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="10"
+            />
+          </div>
+
+          <div class="daily-list" data-id="11">
+            <h3>17 PM - 18 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="11"
+            />
+          </div>
+
+          <div class="daily-list" data-id="12">
+            <h3>18 PM - 19 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="12"
+            />
+          </div>
+
+          <div class="daily-list" data-id="13">
+            <h3>19 PM - 20 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="13"
+            />
+          </div>
+
+          <div class="daily-list" data-id="14">
+            <h3>20 PM - 21 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="14"
+            />
+          </div>
+
+          <div class="daily-list" data-id="15">
+            <h3>21 PM - 22 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="15"
+            />
+          </div>
+
+          <div class="daily-list" data-id="16">
+            <h3>22 PM - 23 PM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="16"
+            />
+          </div>
+
+          <div class="daily-list" data-id="17">
+            <h3>23 PM - 24 AM</h3>
+            <input
+              type="text"
+              placeholder="Enter Your Routine Based on Time"
+              data-id="17"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="sticky-notes" style="display: none">
+        <div class="section-upper">
+          <h1>Your Notes!</h1>
+          <button>Back</button>
+        </div>
+        <button class="create-notes">Create Notes</button>
+        <div class="create-notes-popup" style="top: -500%; left: 50%">
+          <div class="cut-round">
+            <i class="fa-solid fa-xmark cut-icon"></i>
+          </div>
+          <h1>Write Your Notes Content</h1>
+          <p class="sticky-error"></p>
+          <textarea name="" id="" cols="30" rows="7"></textarea>
+          <div class="select-color">
+            <h3>Select Your Notes color</h3>
+            <p class="color-error"></p>
+            <div class="colors">
+              <button value="#f1f58f"></button>
+              <button value="#ffa930"></button>
+              <button value="#ff32b2"></button>
+              <button value="#a9edf1"></button>
+              <button value="#74ed4b"></button>
+            </div>
+          </div>
+          <button class="paste-task-btn">Paste your Note</button>
+        </div>
+        <div class="sticky-notes-container"><p>No Notes yet</p></div>
       </section>
     </div>
     <script src="script.js"></script>
