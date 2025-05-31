@@ -518,6 +518,8 @@ function dailyPlanner() {
 }
 dailyPlanner();
 
+// Dev - info
+
 document.querySelector(".dev-info").addEventListener("click", () => {
   const existing = document.querySelector(".dev-info-overlay");
   if (existing) existing.remove();
@@ -527,61 +529,154 @@ document.querySelector(".dev-info").addEventListener("click", () => {
 
   const overlay = document.createElement("div");
   overlay.classList.add("dev-info-overlay");
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-  `;
+
+  // Overlay styles
+  Object.assign(overlay.style, {
+    position: "fixed",
+    inset: "0",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backdropFilter: "blur(8px)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: "99999",
+  });
 
   const popup = document.createElement("div");
   popup.classList.add("dev-info-popup");
-  popup.style.cssText = `
-    background: rgba(1, 44, 44, 0.47);
-    border: 2px solid #00ffff;
-    padding: 40px 50px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px #00ffff;
-    text-align: center;
-    color: #fff;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-  `;
+
+  // Popup styles
+  Object.assign(popup.style, {
+    background: "rgba(1, 44, 44, 0.8)",
+    border: "2px solid #00ffff",
+    padding: "40px 50px",
+    borderRadius: "20px",
+    boxShadow: "0 0 30px #00ffff",
+    textAlign: "center",
+    color: "#fff",
+    maxWidth: "500px",
+    width: "90%",
+    fontFamily: "'Orbitron', sans-serif",
+    position: "relative",
+    opacity: "0",
+    transform: "translateY(-20px)",
+    transition: "opacity 0.3s ease, transform 0.3s ease",
+  });
 
   popup.innerHTML = `
-    <img src="Assets/piyush-ghibli.png" alt="Piyush Raj" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 15px #00ffff; margin-bottom: 20px;" />
-    <h2 style="font-size: 28px; margin: 10px 0;">Piyush Raj</h2>
-    <p style="font-size: 16px; margin-bottom: 20px;">Web Developer | JavaScript & MERN Enthusiast</p>
-    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;">
-      <a href="https://github.com/Piyush-Raj-Sharma" target="_blank">
-        <img src="Assets/github.png" alt="GitHub" style="width: 35px; filter: drop-shadow(0 0 1px #00ffff);" />
+    <img src="Assets/piyush-ghibli.png" alt="Piyush Raj" />
+    <h2>Piyush Raj</h2>
+    <p>Web Developer | JavaScript & MERN Enthusiast</p>
+    <div class="dev-social-links">
+      <a href="https://github.com/Piyush-Raj-Sharma" target="_blank" aria-label="GitHub">
+        <img src="Assets/github.png" alt="GitHub" />
       </a>
-      <a href="https://instagram.com/Piyush-Raj-Sharma" target="_blank">
-        <img src="Assets/instagram.png" alt="Instagram" style="width: 35px; filter: drop-shadow(0 0 1px #00ffff);" />
+      <a href="https://instagram.com/Piyush-Raj-Sharma" target="_blank" aria-label="Instagram">
+        <img src="Assets/instagram.png" alt="Instagram" />
       </a>
-      <a href="https://linkedin.com/in/piyush-raj-sharma" target="_blank">
-        <img src="Assets/linkedin.png" alt="LinkedIn" style="width: 35px; filter: drop-shadow(0 0 1px #00ffff);" />
+      <a href="https://linkedin.com/in/piyush-raj-sharma" target="_blank" aria-label="LinkedIn">
+        <img src="Assets/linkedin.png" alt="LinkedIn" />
       </a>
     </div>
-    <button class="close-dev-info" style="padding: 8px 20px; font-size: 14px; background: #00ffff; border: none; border-radius: 10px; color: #000; cursor: pointer; box-shadow: 0 0 10px #00ffff;">Close</button>
+    <button class="close-dev-info" aria-label="Close Developer Info">Close</button>
   `;
+
+  // Style elements inside popup
+
+  const img = popup.querySelector("img[alt='Piyush Raj']");
+  Object.assign(img.style, {
+    width: "150px",
+    height: "150px",
+    objectFit: "cover",
+    borderRadius: "50%",
+    boxShadow: "0 0 15px #00ffff",
+    marginBottom: "20px",
+    transition: "transform 0.3s ease",
+    cursor: "default",
+  });
+  img.addEventListener("mouseenter", () => (img.style.transform = "scale(1.05)"));
+  img.addEventListener("mouseleave", () => (img.style.transform = "scale(1)"));
+
+  const h2 = popup.querySelector("h2");
+  Object.assign(h2.style, {
+    fontSize: "28px",
+    margin: "10px 0",
+    letterSpacing: "1.5px",
+  });
+
+  const p = popup.querySelector("p");
+  Object.assign(p.style, {
+    fontSize: "16px",
+    marginBottom: "25px",
+    fontWeight: "500",
+    color: "#a0f7f7",
+  });
+
+  const socialLinks = popup.querySelector(".dev-social-links");
+  Object.assign(socialLinks.style, {
+    display: "flex",
+    justifyContent: "center",
+    gap: "30px",
+    marginBottom: "30px",
+  });
+
+  socialLinks.querySelectorAll("a img").forEach((icon) => {
+    Object.assign(icon.style, {
+      width: "35px",
+      filter: "drop-shadow(0 0 3px #00ffff)",
+      transition: "transform 0.3s ease, filter 0.3s ease",
+      cursor: "pointer",
+    });
+    icon.parentElement.addEventListener("mouseenter", () => {
+      icon.style.transform = "scale(1.2)";
+      icon.style.filter = "drop-shadow(0 0 6px #00ffff)";
+    });
+    icon.parentElement.addEventListener("mouseleave", () => {
+      icon.style.transform = "scale(1)";
+      icon.style.filter = "drop-shadow(0 0 3px #00ffff)";
+    });
+  });
+
+  const closeBtn = popup.querySelector(".close-dev-info");
+  Object.assign(closeBtn.style, {
+    padding: "10px 25px",
+    fontSize: "16px",
+    backgroundColor: "#00ffff",
+    border: "none",
+    borderRadius: "12px",
+    color: "#000",
+    cursor: "pointer",
+    boxShadow: "0 0 15px #00ffff",
+    transition: "background-color 0.3s ease, color 0.3s ease",
+  });
+  closeBtn.addEventListener("mouseenter", () => {
+    closeBtn.style.backgroundColor = "#00cccc";
+    closeBtn.style.color = "#fff";
+  });
+  closeBtn.addEventListener("mouseleave", () => {
+    closeBtn.style.backgroundColor = "#00ffff";
+    closeBtn.style.color = "#000";
+  });
 
   overlay.appendChild(popup);
   document.body.appendChild(overlay);
 
-  popup.querySelector(".close-dev-info").addEventListener("click", () => {
-    overlay.remove();
-    document.body.style.overflow = ""; // Re-enable scrolling
+  // Trigger fade-in animation
+  requestAnimationFrame(() => {
+    popup.style.opacity = "1";
+    popup.style.transform = "translateY(0)";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    // Fade out effect
+    popup.style.opacity = "0";
+    popup.style.transform = "translateY(-20px)";
+    setTimeout(() => {
+      overlay.remove();
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }, 300);
   });
 });
-
 
 function weatherFunc() {
   const cityInput = document.querySelector(".location input");

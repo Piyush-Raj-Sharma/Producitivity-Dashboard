@@ -1251,9 +1251,4 @@ textarea {
 }
 }
 
-<div class="footer">
-  <h4 class="dev-info" style="cursor: pointer; opacity: 0.8; font-size: 14px; margin-top: 10px;">
-    Created With <span><i class="fa-regular fa-heart"></i></span> By Piyush Raj<br>
-    <small style="color: var(--txt1); opacity: 0.6;">Click here to view Developer Profile</small>
-  </h4>
-</div>
+
