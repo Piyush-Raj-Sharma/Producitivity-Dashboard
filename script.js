@@ -564,18 +564,18 @@ document.querySelector(".dev-info").addEventListener("click", () => {
   });
 
   popup.innerHTML = `
-    <img src="Assets/piyush-ghibli.png" alt="Piyush Raj" />
+    <img src="assets/piyush-ghibli.png" alt="Piyush Raj" />
     <h2>Piyush Raj</h2>
     <p>Web Developer | JavaScript & MERN Enthusiast</p>
     <div class="dev-social-links">
       <a href="https://github.com/Piyush-Raj-Sharma" target="_blank" aria-label="GitHub">
-        <img src="Assets/github.png" alt="GitHub" />
+        <img src="assets/github.png" alt="GitHub" />
       </a>
       <a href="https://instagram.com/Piyush-Raj-Sharma" target="_blank" aria-label="Instagram">
-        <img src="Assets/instagram.png" alt="Instagram" />
+        <img src="assets/instagram.png" alt="Instagram" />
       </a>
       <a href="https://linkedin.com/in/piyush-raj-sharma" target="_blank" aria-label="LinkedIn">
-        <img src="Assets/linkedin.png" alt="LinkedIn" />
+        <img src="assets/linkedin.png" alt="LinkedIn" />
       </a>
     </div>
     <button class="close-dev-info" aria-label="Close Developer Info">Close</button>
