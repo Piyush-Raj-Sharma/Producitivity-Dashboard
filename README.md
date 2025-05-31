@@ -48,7 +48,7 @@ A visually engaging and feature-rich **Productivity Dashboard** designed to stre
 
 ## 🧑‍💻 Live Demo
 
-[https://producitivity-dashboard.vercel.app/]([https://producitivity-dashboard.vercel.app/])
+👉 [Click here to explore the dashboard](https://producitivity-dashboard.vercel.app/)
 
 ---
 
