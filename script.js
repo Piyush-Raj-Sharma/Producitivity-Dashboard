@@ -36,7 +36,7 @@ function DateAndTime() {
   ];
   let date = new Date();
   let todayDate = date.getDate();
-  let month = months[date.getMonth() + 1];
+  let month = months[date.getMonth()];
   let year = date.getFullYear();
   dateText.innerHTML = `${todayDate} ${month} , ${year}`;
 
